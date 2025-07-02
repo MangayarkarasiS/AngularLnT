@@ -1,0 +1,5 @@
+<p>login works!</p>
+<app-product [name]="username" 
+(messageEvent)="recieveMessage($event)" ></app-product>
+
+<h2>Message received from parent: {{childMessage}}</h2>
