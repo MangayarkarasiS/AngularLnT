@@ -6,6 +6,8 @@ import { StudviewComponent } from './day3/studview/studview.component';
 import { PagenotfoundComponent } from './day3/pagenotfound/pagenotfound.component';
 import { TempFormComponent } from './day4/temp-form/temp-form.component';
 import { ReactformComponent } from './day4/reactform/reactform.component';
+import { GetStudComponent } from './studentcomp/get-stud/get-stud.component';
+import { StudenthttpaddComponent } from './studentcomp/studenthttpadd/studenthttpadd.component';
 
 export const routes: Routes = [
     {path:'',component:ArrayExComponent}, 
@@ -14,6 +16,9 @@ export const routes: Routes = [
     {path:'stud-view/:sid',component: StudviewComponent},
      {path:'LoginForm',component:TempFormComponent},
       {path:'RForm',component:ReactformComponent},
+       {path:'listStud',component:GetStudComponent},
+        {path:'addStud',component:StudenthttpaddComponent},
+      
     {path:'**',component:PagenotfoundComponent}
 
 ];

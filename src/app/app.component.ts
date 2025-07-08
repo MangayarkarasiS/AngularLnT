@@ -8,6 +8,7 @@ import { ArrayExComponent } from './day2/array-ex/array-ex.component';
 import { StudDetailsComponent } from './day2/stud-details/stud-details.component';
 import { HighlighttextDirective } from './day3/highlighttext.directive';
 import { HeaderComponent } from './day3/header/header.component';
+//import { HttpClient } from '@angular/common/http';
 
 
 @Component({

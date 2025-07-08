@@ -1,4 +1,4 @@
-<p>temp-form works!</p>
+<!--<p>temp-form works!</p>
 <form #userForm="ngForm"  (ngSubmit)=onSubmit(userForm)>
    
   
@@ -12,14 +12,14 @@
       #username="ngModel"
     />
 
-    <!-- Validation Messages -->
+  
     <div  *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message"
 >
       <small *ngIf="username.errors?.['required']">Username is required.</small>
       <small *ngIf="username.errors?.['minlength']">Minimum 4 characters.</small>
     </div>
 
-    <!-- State Debugging -->
+  
     <p>Valid: {{ username.valid }}</p>
     <p>Dirty: {{ username.dirty }}</p>
     <p>Touched: {{ username.touched }}</p>
@@ -38,14 +38,14 @@
     
   />
 
-  <!-- Validation Messages -->
+  
   <div  *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="error-message"
 >
     <small *ngIf="emailField.errors?.['required']">Email is required.</small>
     <small *ngIf="emailField.errors?.['email']">Invalid email format.</small>
   </div>
 
-  <!-- Debugging States -->
+  
   <p>Valid: {{ emailField.valid }}</p>
   <p>Dirty: {{ emailField.dirty }}</p>
   <p>Touched: {{ emailField.touched }}</p>
@@ -54,4 +54,92 @@
   <button type="submit" [disabled]="!userForm.valid">Submit</button>
 </form>      
 
-?
+?-->
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <!-- Username -->
+  <div>
+    <label>Username:</label>
+    <input
+      name="username"
+      [(ngModel)]="model.username"
+      required
+      minlength="4"
+      #username="ngModel"
+    />
+    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+      <small *ngIf="username.errors?.['required']">Username is required.</small>
+      <small *ngIf="username.errors?.['minlength']">Minimum 4 characters.</small>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label>Email:</label>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="model.email"
+      required
+      email
+      #emailField="ngModel"
+    />
+    <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="error-message">
+      <small *ngIf="emailField.errors?.['required']">Email is required.</small>
+      <small *ngIf="emailField.errors?.['email']">Invalid email format.</small>
+    </div>
+  </div>
+
+  <!-- Dropdown: Role -->
+  <div>
+    <label>Role:</label>
+    <select name="role" [(ngModel)]="model.role" required #role="ngModel">
+      <option value="" disabled selected>Select a role</option>
+      <option value="admin">Admin</option>
+      <option value="user">User</option>
+      <option value="guest">Guest</option>
+    </select>
+    <div *ngIf="role.invalid && (role.dirty || role.touched)" class="error-message">
+      <small *ngIf="role.errors?.['required']">Role is required.</small>
+    </div>
+  </div>
+
+  <!-- Checkbox: Accept Terms -->
+  <div>
+    <label>
+      <input
+        type="checkbox"
+        name="terms"
+        [(ngModel)]="model.terms"
+        required
+        #terms="ngModel"
+      />
+      Accept Terms & Conditions
+    </label>
+    <div *ngIf="terms.invalid && (terms.dirty || terms.touched)" class="error-message">
+      <small *ngIf="terms.errors?.['required']">You must accept the terms.</small>
+    </div>
+  </div>
+
+  <!-- Radio Buttons: Gender -->
+  <div>
+    <label>Gender:</label>
+    <label>
+      <input type="radio" name="gender" [(ngModel)]="model.gender" value="male" required />
+      Male
+    </label>
+    <label>
+      <input type="radio" name="gender" [(ngModel)]="model.gender" value="female" required />
+      Female
+    </label>
+    <label>
+      <input type="radio" name="gender" [(ngModel)]="model.gender" value="other" required />
+      Other
+    </label>
+    <div *ngIf="userForm.controls['gender']?.invalid && userForm.controls['gender']?.touched" class="error-message">
+      <small>Gender is required.</small>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>

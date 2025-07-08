@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class ReactformComponent {
  userForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email])
+    email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(15)])
   });
 
   onSubmit() {

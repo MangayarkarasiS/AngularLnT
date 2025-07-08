@@ -10,9 +10,9 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './temp-form.component.css'
 })
 export class TempFormComponent {
- model={username:'',email:''};
+ model = { username: '', email: '', role:'', terms:'',gender:'' };
 
  onSubmit(userForm:NgForm){
-  console.log(userForm);
+  console.log(userForm.value.username);
  }
 }
