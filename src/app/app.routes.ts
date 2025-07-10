@@ -8,16 +8,23 @@ import { TempFormComponent } from './day4/temp-form/temp-form.component';
 import { ReactformComponent } from './day4/reactform/reactform.component';
 import { GetStudComponent } from './studentcomp/get-stud/get-stud.component';
 import { StudenthttpaddComponent } from './studentcomp/studenthttpadd/studenthttpadd.component';
+import { StudByNameComponent } from './studentcomp/stud-by-name/stud-by-name.component';
+import { authGuard } from './guards/auth.guard';
+import { roleGuard } from './guards/role.guard';
+import { LoginformComponent } from './studentcomp/loginform/loginform.component';
 
 export const routes: Routes = [
-    {path:'',component:ArrayExComponent}, 
-    {path:'stud-list',component:StudDetailsComponent},
-    {path:'product',component:ProductComponent},
-    {path:'stud-view/:sid',component: StudviewComponent},
-     {path:'LoginForm',component:TempFormComponent},
-      {path:'RForm',component:ReactformComponent},
-       {path:'listStud',component:GetStudComponent},
+    {path:'',component:LoginformComponent}, 
+    {path:'LoginForm',component:LoginformComponent},
+     {path:'listStud',component:GetStudComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
+    {path:'stud-list',component:StudDetailsComponent,canActivate: [authGuard, roleGuard], data: { roles: ['Admin'] }},
+    {path:'product',component:ProductComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
+    {path:'stud-view/:sid',component: StudviewComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
+     
+      {path:'RForm',component:ReactformComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
+      
         {path:'addStud',component:StudenthttpaddComponent},
+        {path:'listStudName',component:StudByNameComponent},
       
     {path:'**',component:PagenotfoundComponent}
 

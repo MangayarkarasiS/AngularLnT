@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Stud } from '../../stud.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'app-studentviewhttp',
