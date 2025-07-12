@@ -13,7 +13,7 @@ export class StudentService {
   baseUrl:string="https://localhost:7227/api/Studs";
  newHeader: HttpHeaders=new HttpHeaders().set('Authorization','Bearer'+this.authService.fetchToken().token); 
   
-  constructor(private httpClient:HttpClient) { }
+  
 
 
 
