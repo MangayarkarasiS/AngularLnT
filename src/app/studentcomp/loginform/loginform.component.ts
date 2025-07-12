@@ -61,7 +61,8 @@ export class LoginformComponent {
      this.userService.authenticateUser(loginUser).subscribe({
       next:response=>{
         console.log('JWT received:', response.token);
-        const token = localStorage.getItem('jwtToken');
+        localStorage.setItem('authToken', response.token);
+        //const token = localStorage.getItem('authToken');
         this.router.navigate(['RForm']);
      },
   error: err => {

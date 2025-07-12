@@ -27,10 +27,10 @@
             
             <td>{{stud.studDOB | date: 'fullDate' }}</td>
             <td>{{stud.studGender}}</td>
-          <!--  <td> <button type="button" class="btn btn-warning" (click)="viewStudent(stud.id)">View Student</button></td>
-            <td> <button type="button" class="btn btn-primary" (click)="editStudent(stud.id)">Edit Student</button></td>
-            <td> <button type="button" class="btn btn-danger" (click)="deleteStudent(stud.id)">Delete Student</button></td>
-         --> </tr>
+            <td> <button type="button" class="btn btn-warning" (click)="viewStudent(stud.studId)">View Student</button></td>
+            <td> <button type="button" class="btn btn-primary" (click)="editStudent(stud.studId)">Edit Student</button></td>
+            <td> <button type="button" class="btn btn-danger" (click)="deleteStudent(stud.studId)">Delete Student</button></td>
+          </tr>
        
         </tbody>
     </table>

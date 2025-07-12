@@ -15,9 +15,9 @@ export class StudByNameComponent {
   
   allstud:Stud[]=[];
   ngOnInit(){
-    this.studService.GetStudByName().subscribe({
+   /* this.studService.GetStudByName().subscribe({
       next:(response)=>{this.allstud=response;},
       error:(err)=>console.log(err)
-    })
+    })*/
   }
 }

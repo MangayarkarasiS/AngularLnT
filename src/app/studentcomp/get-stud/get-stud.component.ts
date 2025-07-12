@@ -35,4 +35,30 @@ export class GetStudComponent{
  addStudent(){
   this.router.navigate(['addStud']);
  }
+ viewStudent(studid: number){
+   this.router.navigate(['viewStud',studid]);
+ }
+ editStudent(studId:number){
+  this.router.navigate(['editStud',studId]);
+ } 
+ deleteStudent(studId:number){
+
+  const confirmed = window.confirm('Are you sure you want to delete this student?');
+  if (confirmed) {
+    this.studentService.deleteStudent(studId).subscribe({
+      next: () => {
+        alert('Student deleted successfully.');
+        this.router.navigate(['/listStud']).then(() => {
+    this.loadData(); // Custom method to refresh data; 
+      })
+    },
+      error: err => {
+        console.error('Delete failed:', err);
+        alert('Failed to delete student.');
+      }
+    });
+  }
+}
+
+ 
 }

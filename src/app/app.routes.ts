@@ -12,18 +12,21 @@ import { StudByNameComponent } from './studentcomp/stud-by-name/stud-by-name.com
 import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
 import { LoginformComponent } from './studentcomp/loginform/loginform.component';
+import { StudHttpEditComponent } from './studentcomp/stud-http-edit/stud-http-edit.component';
 
 export const routes: Routes = [
     {path:'',component:LoginformComponent}, 
     {path:'LoginForm',component:LoginformComponent},
-     {path:'listStud',component:GetStudComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
+    {path:'listStud',component:GetStudComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User','Admin'] }},
     {path:'stud-list',component:StudDetailsComponent,canActivate: [authGuard, roleGuard], data: { roles: ['Admin'] }},
     {path:'product',component:ProductComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
     {path:'stud-view/:sid',component: StudviewComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
      
       {path:'RForm',component:ReactformComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
-      
+
         {path:'addStud',component:StudenthttpaddComponent},
+       {path:'viewStud/:sid',component:StudviewComponent},
+        {path:'editStud/:sid',component:StudHttpEditComponent},
         {path:'listStudName',component:StudByNameComponent},
       
     {path:'**',component:PagenotfoundComponent}

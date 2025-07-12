@@ -36,7 +36,7 @@ export class StudentviewhttpComponent {
 
   }
   back(){
-    this.router.navigate(['student-list-http']);
+    this.router.navigate(['listStud']);
   }
 
 }

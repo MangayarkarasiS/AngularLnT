@@ -15,15 +15,10 @@ export class AuthService {
   removeToken(){
     sessionStorage.removeItem("userInfo");
   }
-
-  fetchToken(){
-    let userInfoString= sessionStorage.getItem("userInfo");
-    let userInfo;
-    if(userInfoString!=null)
-    {
-      userInfo=JSON.parse(userInfoString);
-    }
-    return userInfo;
+   fetchToken(): { token: string } | null {
+    const token = localStorage.getItem('authToken');
+    console.log("Token from auth service="+token);
+    return token ? { token } : null;
   }
   login(role: string) {
     console.log("Role in authservice="+role);

@@ -1,0 +1,57 @@
+
+
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="addUser(myForm)">
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h3>Add User</h3>
+        </div>
+        <div class="card-body">
+         
+           <div class="form-group">
+             <label for="userName" class="form-label">UserName</label>
+             <input type="text" 
+                    class="form-control" 
+                    name="userName" 
+                    id="userName"
+                    ngModel
+                    #myid="ngModel"
+                    >
+           </div>
+           <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" 
+                   class="form-control" 
+                   name="password" 
+                   id="password"
+                   ngModel
+                   required
+                   #mypassword="ngModel">
+                   <div class="text-danger" *ngIf="mypassword.errors?.['required'] && mypassword.touched">
+                    Student Name is required!
+                   </div>
+                   
+          </div>
+          <div class="form-group">
+            <label for="role" class="form-label">User Role</label>
+            <input type="text" 
+                    class="form-control" 
+                    name="role" 
+                    id="role"
+                    ngModel
+                    required
+                    #myrole="ngModel">
+                    <div class="text-danger" *ngIf="!myForm.valid && myForm.touched">
+                      Role not entered!
+                     </div>
+          </div>
+          
+        </div>
+        <div class="card-footer">
+        
+         <button type="submit" [disabled]="myForm.invalid"
+          class="btn btn-success">Add User</button>
+        </div>
+  </div>   
+</form>
+</div>

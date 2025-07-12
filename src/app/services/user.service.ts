@@ -28,4 +28,8 @@ allStudents:UserCredentials[]=[];
     })
   );
     }
+    addUser(user:UserCredentials):Observable<UserCredentials>{
+        return this.httpClient.post<UserCredentials>(this.baseUrl,user);
+      }
+    
 }
