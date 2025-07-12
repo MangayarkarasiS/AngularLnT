@@ -13,6 +13,7 @@ import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
 import { LoginformComponent } from './studentcomp/loginform/loginform.component';
 import { StudHttpEditComponent } from './studentcomp/stud-http-edit/stud-http-edit.component';
+import { AddUserComponent } from './UserComp/add-user/add-user.component';
 
 export const routes: Routes = [
     {path:'',component:LoginformComponent}, 
@@ -28,6 +29,7 @@ export const routes: Routes = [
        {path:'viewStud/:sid',component:StudviewComponent},
         {path:'editStud/:sid',component:StudHttpEditComponent},
         {path:'listStudName',component:StudByNameComponent},
+       {path:'addUser',component:AddUserComponent},
       
     {path:'**',component:PagenotfoundComponent}
 
