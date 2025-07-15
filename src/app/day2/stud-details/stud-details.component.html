@@ -16,9 +16,13 @@
             </tr>
         </thead>
         <tbody>
-            <ng-container *ngFor="let stud of allStudents">
-           <tr  *ngIf="stud.studGender==='Male'" >
-           <!-- <tr *ngFor="let stud of allStudents" [ngClass]="{'table-dark':stud.studTotalMarks>200}">-->
+            <input type="text" placeholder="Search by Gender" [(ngModel)]="filterData">
+            <button type="button" class="btn btn-warning" (click)="searchGender()">Search Student By Gender</button>    
+         
+            <tr *ngFor="let stud of filteredStudents">
+                   
+           <!-- <tr  *ngIf="stud.studGender==='Male'" >
+           <tr *ngFor="let stud of allStudents" [ngClass]="{'table-dark':stud.studTotalMarks>200}">-->
                 <td>{{stud.studId}}</td>
                 <td>{{stud.studName | uppercase }}</td>
                 <td>{{stud.studTotalMarks | currency :'INR' :'symbol' }}</td>
@@ -26,8 +30,8 @@
                 <td>{{stud.studDOB | date:'yyyy-MMM-dd' }}</td>    
                 <td>{{stud.studGender}}</td>  
                 <td><button type="button" class="btn btn-warning" (click)="viewstud(stud.studId)">View Student</button></td>             
-            </tr>
-            </ng-container>
+               </tr>
+           <!-- </ng-container>-->
         </tbody>
     </table>    
 </div>

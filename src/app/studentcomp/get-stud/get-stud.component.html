@@ -19,8 +19,11 @@
         </tr>
         </thead>
         <tbody>
-            
-          <tr  *ngFor="let stud of allStud">
+             <input type="text" placeholder="Enter Search item" [(ngModel)]="searchname">
+            <button type="button" class="btn btn-warning" (click)="searchGender()">SearchByGender</button>    
+          <button type="button" class="btn btn-danger" (click)="searchName()">SearchByName</button>    
+         
+          <tr  *ngFor="let stud of filteredStudents">
             <td>{{stud.studId}}</td>
             <td>{{stud.studName }}</td>
             <td>{{stud.studTotalMarks  }}</td>

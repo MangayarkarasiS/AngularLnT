@@ -14,10 +14,14 @@ import { roleGuard } from './guards/role.guard';
 import { LoginformComponent } from './studentcomp/loginform/loginform.component';
 import { StudHttpEditComponent } from './studentcomp/stud-http-edit/stud-http-edit.component';
 import { AddUserComponent } from './UserComp/add-user/add-user.component';
+import { ChangesngComponent } from './hooks/changesng/changesng.component';
+import { ParentngdochkComponent } from './hooks/parentngdochk/parentngdochk.component';
 
 export const routes: Routes = [
     {path:'',component:LoginformComponent}, 
     {path:'LoginForm',component:LoginformComponent},
+    {path:'check',component:ParentngdochkComponent},
+     {path:'change',component:ChangesngComponent},
     {path:'listStud',component:GetStudComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User','Admin'] }},
     {path:'stud-list',component:StudDetailsComponent,canActivate: [authGuard, roleGuard], data: { roles: ['Admin'] }},
     {path:'product',component:ProductComponent, canActivate: [authGuard, roleGuard], data: { roles: ['User'] }},
