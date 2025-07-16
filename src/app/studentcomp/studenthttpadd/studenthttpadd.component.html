@@ -28,7 +28,7 @@
                     >
            </div>
            <div class="form-group">
-            <label for="sName" class="form-label">Student Name</label>
+         <!--   <label for="sName" class="form-label">Student Name</label>
             <input type="text" 
                    class="form-control" 
                    name="studName" 
@@ -42,7 +42,14 @@
                    </div>
                    <div class="text-danger" *ngIf="mystudName.errors?.['invalidText'] && mystudName.touched">
                     Student Name should contain only characters!
-                   </div>
+                   </div>-->
+                   <!-- user-dropdown.component.html -->
+<select [(ngModel)]="selectedUserName">
+  <option *ngFor="let stud of allStud" [value]="stud.studId">
+    {{ stud.studName }}
+  </option>
+</select>
+
           </div>
           <div class="form-group">
             <label for="sMarks" class="form-label">Student TotalMarks</label>
@@ -58,7 +65,7 @@
                      </div>
           </div>
           <div class="form-group">
-            <label for="sDOB" class="form-label">Student ID</label>
+            <label for="sDOB" class="form-label">Student DOB</label>
             <input type="date" ngModel #mystudDob="ngModel" 
             class="form-control" name="studDob" id="sDOB">
           </div>
