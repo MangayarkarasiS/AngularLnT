@@ -42,6 +42,7 @@ export class GetStudComponent{
   );
  }
  searchName(){
+  console.log();
    this.filteredStudents = this.allStud.filter(stud =>
     stud.studName.toLowerCase()==this.searchname.trim().toLowerCase()
   );
